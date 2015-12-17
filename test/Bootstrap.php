@@ -21,10 +21,14 @@ class Bootstrap
     {
         $zf2ModulePaths = [dirname(dirname(__DIR__))];
         if (($path = static::findParentPath('vendor'))) {
-            if(is_string($path)) $zf2ModulePaths[] = $path;
+            if (is_string($path)) {
+                $zf2ModulePaths[] = $path;
+            }
         }
         if (($path = static::findParentPath('module')) !== $zf2ModulePaths[0]) {
-            if(is_string($path)) $zf2ModulePaths[] = $path;
+            if (is_string($path)) {
+                $zf2ModulePaths[] = $path;
+            }
         }
 
         static::initAutoloader();
