@@ -1,0 +1,45 @@
+sudo: false
+
+language: php
+
+branches:
+  except:
+    - /^release-.*$/
+    - /^ghgfk-.*$/
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 5.5
+      env:
+        - EXECUTE_CS_CHECK=true
+    - php: 5.6
+      env:
+        - EXECUTE_CS_CHECK=true
+    - php: 7
+    - php: hhvm
+  allow_failures:
+    - php: 5.6
+    - php: 7
+    - php: hhvm
+
+notifications:
+  slack: eokopublic:WkAm4uXL9tVwgficryHmYayT
+
+before_install:
+  - if [[ $EXECUTE_TEST_COVERAGE != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
+  - composer self-update
+
+install:
+  - travis_retry composer install --no-interaction --ignore-platform-reqs
+
+script:
+  - if [[ $EXECUTE_TEST_COVERAGES != 'true' ]]; then ./vendor/bin/phpunit ; fi
+  - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then ./vendor/bin/php-cs-fixer fix -v --diff --dry-run ; fi
+
+after_script:
+  - if [[ $EXECUTE_TEST_COVERAGE == 'true' ]]; then ./vendor/bin/test-reporter ; fi

@@ -1,0 +1,42 @@
+{
+  "name": "eoko/wpscan",
+  "description":"ZF2 wrapper for wpscan",
+  "keywords":["ZF2", "wpscan", "eoko"],
+  "type":"library",
+  "license":"MIT",
+
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+
+  "authors":[
+    {
+      "name":"Romain DARY",
+      "email": "romain.dary@eoko.fr",
+      "homepage":"http://eoko.fr"
+    }
+  ],
+  "homepage": "https://github.com/eoko/wpscan",
+
+  "autoload": {
+    "psr-4": {
+      "Eoko\\Wpscan\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Eoko\\Wpscan\\Test\\": "test/"
+    }
+  },
+
+  "require": {
+    "zendframework/zendframework": "^2.5@dev"
+  },
+
+  "require-dev": {
+    "zendframework/zendframework": "^2.5@dev",
+    "satooshi/php-coveralls": "0.6.*",
+    "mockery/mockery": "^1.0@dev",
+    "fabpot/php-cs-fixer": "1.7.*",
+    "phpunit/phpunit": "~4.0"
+  }
+}

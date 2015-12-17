@@ -1,0 +1,4 @@
+# Test Files #
+vendor
+composer.lock
+.idea

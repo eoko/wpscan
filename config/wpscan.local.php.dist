@@ -1,0 +1,35 @@
+<?php
+
+return [
+    'wpscan' => [
+        'bin' => '/sample/bin/folder/for/wpscan.rb',
+        'logger' => 'logger',
+    ],
+
+    'log' => [
+        'logger' => [
+            'writers' => [
+                [
+                    'name' => 'stream',
+                    'options' => [
+                        'stream' => 'php://stdout',
+                        'filters' => [
+                            'priority' => [
+                                'name' => 'priority',
+                                'options' => [
+                                    'priority' => 9
+                                ]
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
+
+    'service_manager' => [
+        'abstract_factories' => [
+            'Zend\Log\LoggerAbstractServiceFactory',
+        ],
+    ],
+];
