@@ -91,6 +91,7 @@ class Bootstrap
             }
             $previousDir = $dir;
         }
+        var_dump($dir . '/' . $path, $dir, $path);
         return $dir . '/' . $path;
     }
 }
