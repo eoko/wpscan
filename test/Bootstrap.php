@@ -21,12 +21,10 @@ class Bootstrap
     {
         $zf2ModulePaths = [dirname(dirname(__DIR__))];
         if (($path = static::findParentPath('vendor'))) {
-            var_dump(__LINE__ . ' : ' . $path);
-            $zf2ModulePaths[] = $path;
+            is_string($path) $zf2ModulePaths[] = $path;
         }
         if (($path = static::findParentPath('module')) !== $zf2ModulePaths[0]) {
-            var_dump(__LINE__ . ' : ' . $path);
-            $zf2ModulePaths[] = $path;
+            if(is_string($path)) $zf2ModulePaths[] = $path;
         }
 
         static::initAutoloader();
@@ -40,8 +38,6 @@ class Bootstrap
                 'Eoko\Wpscan'
             ]
         ];
-
-        var_dump($config);
 
         $serviceManager = new ServiceManager(new ServiceManagerConfig());
         $serviceManager->setService('ApplicationConfig', $config);
