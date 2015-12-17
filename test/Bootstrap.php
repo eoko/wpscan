@@ -74,7 +74,7 @@ class Bootstrap
             'Zend\Loader\StandardAutoloader' => [
                 'autoregister_zf' => true,
                 'namespaces' => [
-                    __NAMESPACE__ => __DIR__ . '/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__,
                 ],
             ],
         ]);
