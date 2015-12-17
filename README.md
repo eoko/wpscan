@@ -1,4 +1,5 @@
 # Eoko\Wpscan Module for ZF2
+[![Build Status](https://travis-ci.org/eoko/wpscan.svg)](https://travis-ci.org/eoko/wpscan)
 
 This module is highly experimental and used for a wpscan sandbox with ZF2.
 
